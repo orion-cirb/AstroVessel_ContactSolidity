@@ -16,8 +16,8 @@ Images obtained with featuresFromisosurfaces.py written by Clément Bendetti [Gi
 #### AngleBased_Unwrapping.py :
 
 * Take a .obj file in input, perform a Angle Based Unwrapping (Flattening) and register 2 outputs :
-- One .blend with the object load into Blender and the UV map of the object
-- One .png 512x512 with the Unwrap image of the object
+  - One .blend with the object load into Blender and the UV map of the object
+  - One .png 512x512 with the Unwrap image of the object
 
 #### Solidity_Measurement.ijm :
 
