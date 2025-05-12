@@ -22,7 +22,7 @@ Images obtained with featuresFromisosurfaces.py written by Clément Bendetti [Gi
 #### Solidity_Measurement.ijm :
 
 * Perform a Solidity measurement on all the .png images, output :
-- One .csv file with for each line : the image name, the object area, the Convex hull area, the solidity
+  - One .csv file with for each line : the image name, the object area, the Convex hull area, the solidity
 
 ### Dependencies
 
