@@ -9,7 +9,7 @@
 
 ### Images description
 
-Images obtained with featuresFromisosurfaces.py written by Clément Bendetti [Git Repo] (https://github.com/MontpellierRessourcesImagerie/imagej_macros_and_scripts/tree/master/clement/stand-alones/astrocytesBloodVessels)
+Images obtained with featuresFromisosurfaces.py written by Clément Bendetti [Git Repo](https://github.com/MontpellierRessourcesImagerie/imagej_macros_and_scripts/tree/master/clement/stand-alones/astrocytesBloodVessels)
 
 ### Description
 
