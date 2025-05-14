@@ -1,35 +1,34 @@
-# Solidity_measurement
+# AstroVessel_ContactSolidity
 
 * **Developed by:** Thomas & Héloïse
 * **Developed for:** Noémie
 * **Team:** Cohen-Salmon
-* **Date:** Mai 2025
-* **Software:** Blender + Fiji
+* **Date:** May 2025
+* **Software:** Blender (version 4.4.1) + Fiji
 
 
-### Images description
+### Input files description
 
-Images obtained with featuresFromisosurfaces.py written by Clément Bendetti [Git Repo](https://github.com/MontpellierRessourcesImagerie/imagej_macros_and_scripts/tree/master/clement/stand-alones/astrocytesBloodVessels)
+.obj files generated using the *featuresFromIsosurface.py* script developed by Clément Benedetti at the MRI Center for Image Analysis (available on their [GitHub repository](https://github.com/MontpellierRessourcesImagerie/imagej_macros_and_scripts/tree/master/clement/stand-alones/astrocytesBloodVessels)).
 
-### Description
+### Scripts description
 
 #### AngleBased_Unwrapping.py :
 
-* Take a .obj file in input, perform a Angle Based Unwrapping (Flattening) and register 2 outputs :
+Take a .obj file in input, perform a Angle Based Unwrapping (Flattening) and register 2 outputs :
   - One .blend with the object load into Blender and the UV map of the object
   - One .png 512x512 with the Unwrap image of the object
 
 #### Solidity_Measurement.ijm :
 
-* Perform a Solidity measurement on all the .png images, output :
+Perform a Solidity measurement on all the .png images, output :
   - One .csv file with for each line : the image name, the object area, the Convex hull area, the solidity
 
 ### Dependencies
 
-Blender version 4.4.1
-FIJI
+None
 
 ### Version history
 
-Version 1 released on Mai 14, 2025.
+Version 1 released on May 14, 2025.
 
