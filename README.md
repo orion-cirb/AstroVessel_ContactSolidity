@@ -13,16 +13,15 @@
 
 ### Scripts description
 
-#### AngleBased_Unwrapping.py :
+#### AngleBased_Unwrapping.py:
 
-Take a .obj file in input, perform a Angle Based Unwrapping (Flattening) and register 2 outputs :
-  - One .blend with the object load into Blender and the UV map of the object
-  - One .png 512x512 with the Unwrap image of the object
+Open each .obj file, perform Angle-Based Unwrapping (Flattening) of the contact surface between the astrocyte and the vessel, and save two outputs:
+  - a .blend file containing the contact surface loaded into Blender along with its unwrapped UV map
+  - a .png image (512×512 pixels) of the unwrapped UV map.
 
-#### Solidity_Measurement.ijm :
+#### Solidity_Measurement.ijm:
 
-Perform a Solidity measurement on all the .png images, output :
-  - One .csv file with for each line : the image name, the object area, the Convex hull area, the solidity
+Open each .png image, measure the solidity of the unwrapped UV map (defined as area / convex hull area), and save the results in a .csv file.
 
 ### Dependencies
 
