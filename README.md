@@ -15,7 +15,7 @@
 
 #### AngleBased_Unwrapping.py:
 
-Open each .obj file, perform Angle-Based Unwrapping (Flattening) of the contact surface between the astrocyte and the vessel, and save two outputs:
+Open each *4-flattened-XX.obj* file, perform Angle-Based Unwrapping (Flattening) of the contact surface between the astrocyte and the vessel, and save two outputs:
   - a .blend file containing the contact surface loaded into Blender along with its unwrapped UV map
   - a .png image (512×512 pixels) of the unwrapped UV map.
 
