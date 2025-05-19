@@ -9,7 +9,7 @@
 
 ### Input files description
 
-.obj files generated using the *featuresFromIsosurface.py* script developed by Clément Benedetti at the MRI Center for Image Analysis (available on their [GitHub repository](https://github.com/MontpellierRessourcesImagerie/imagej_macros_and_scripts/tree/master/clement/stand-alones/astrocytesBloodVessels)).
+*4-flattened-XX.obj* files generated using the *featuresFromIsosurface.py* script developed by Clément Benedetti at the MRI Center for Image Analysis (available on their [GitHub repository](https://github.com/MontpellierRessourcesImagerie/imagej_macros_and_scripts/tree/master/clement/stand-alones/astrocytesBloodVessels)).
 
 ### Scripts description
 
@@ -29,5 +29,5 @@ None
 
 ### Version history
 
-Version 1 released on May 14, 2025.
+Version 1 released on May 19, 2025.
 
