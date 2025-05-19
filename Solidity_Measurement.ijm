@@ -1,8 +1,8 @@
 /*
- * Description: Process an RGB image and retrieved Solidity of the object
- * Author: Thomas Caille & Héloïse Monnet @ ORION-CIRB
- * Date: Mai 2025
- * Repository: https://github.com/orion-cirb/Solidity_measurement.git
+ * Description: Open 4-flattened-XX.png files obtained with AngleBased_Unwrapping.py and compute solidity of the UV map
+ * Authors: Thomas Caille & Héloïse Monnet @ ORION-CIRB
+ * Date: May 2025
+ * Repository: https://github.com/orion-cirb/AstroVessel_ContactSolidity.git
  * Dependencies: None
 */
 
@@ -12,51 +12,50 @@ setBatchMode(true);
 // Prompt user to select directory containing input images
 inputDir = getDirectory("Please select a directory containing images to analyze");
 
-// Generate results directory with timestamp
-getDateAndTime(year, month, dayOfWeek, dayOfMonth, hour, minute, second, msec);
-resultDir = inputDir + "Results_" + year + "-" + (month+1) + "-" + dayOfMonth + "_" + hour + "-" + minute + "-" + second + File.separator();
-if (!File.isDirectory(resultDir)) {
-	File.makeDirectory(resultDir);
-}
-
 // Retrieve list of all files in input directory
 inputFiles = getFileList(inputDir);
 
-fileResults = File.open(resultDir + "results_compactness.csv");
-print(fileResults, "Image name, Area ,ConvHull Area,Compactness\n");
+// Create results_solidity.csv file
+fileResults = File.open(inputDir + "results_solidity.csv");
+print(fileResults, "Image name,Area,Convex hull area,Solidity\n");
 
-// Process each .TIF file in the input directory
+// Process each .png file in the input directory
 for (i = 0; i < inputFiles.length; i=i+1) {
     if (endsWith(inputFiles[i], ".png")) {
     	print("Analyzing image " + inputFiles[i] + "...");
     	imgName = replace(inputFiles[i], "_uv.png", "");
     	
-    	// Open the current image
+    	// Open image
     	open(inputDir + inputFiles[i]);
-    	// Change from RGB to 8 bit and invert the Look Up Table
+    	
+    	// Convert to 8-bit and invert LUT
     	run("8-bit");
     	run("Invert LUT");
-    	// Processing : Apply a trheshold based on the histogram of the image 
+    	
+    	// Segment UV map using manual thresholding
     	setThreshold(0, 250, "raw");
     	setOption("BlackBackground", true);
 		run("Convert to Mask");
+		
+		// Measure area and solidity
 		run("Create Selection");
-		// Compute the Measurements
-		run("Set Measurements...", "area shape skewness kurtosis redirect=None decimal=2");
+		run("Set Measurements...", "area shape redirect=None decimal=2");
 		run("Measure");
 		List.setMeasurements;
-		// Store the differents measure in variables
-		objectArea = List.getValue("Area"); 
-		objectSolidity = List.getValue("Solidity");
+		area = List.getValue("Area"); 
+		solidity = List.getValue("Solidity");
 		
-		// Apply a convex Hull and fill it to retrieve the Area
+		// Compute convex hull and measure area
 		run("Convex Hull");
 		List.setMeasurements;
-		convHullArea = List.getValue("Area");
+		convexHullArea = List.getValue("Area");
 		
-		print(fileResults, imgName +","+ objectArea +","+ convHullArea +","+ objectSolidity +"\n");
+		// Save parameters in results file
+		print(fileResults, imgName +","+ area +","+ convexHullArea +","+ solidity +"\n");
     	
+    	// Close all windows
 		close("*");
+		close("Results");
     }
 }
 
